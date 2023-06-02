@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "34977b32-1531-4afb-b297-bb638613352a",
+		"name": "monitorApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set('token', pm.response.json().data.token)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"amramin96.aa@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set('token', pm.response.json().data.token)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"amramin96.aa@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UrlChecks",
+			"item": [
+				{
+					"name": "createUrlCheck",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"google\",\n    \"url\":\"https://www.google.com\",\n    \"protocol\":\"https\",\n    \"path\":\"eeeeeee\",\n    \"port\":\"8080\",\n    \"tags\":[1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/report/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"report",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUrlCheckByTags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tags\": [1,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/urlCheck/getByTags",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"urlCheck",
+								"getByTags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUrlCheckById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/urlCheck/get/647790a75067017116f9e1b4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"urlCheck",
+								"get",
+								"647790a75067017116f9e1b4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUrlCheck",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tag\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/urlCheck/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"urlCheck",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUrlCheck",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/urlCheck/delete/647791ba03bc6a7398bd333a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"urlCheck",
+								"delete",
+								"647791ba03bc6a7398bd333a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "getReportsByTags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tags\": [1,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/report/getByTags",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"report",
+								"getByTags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReportById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/report/get/647790a75067017116f9e1b4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"report",
+								"get",
+								"647790a75067017116f9e1b4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createReport",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"google\",\n    \"availability\":\"https://www.google.com\",\n    \"outages\":1,\n    \"downtime\":5000,\n    \"uptime\":2000,\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/urlCheck/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"urlCheck",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
